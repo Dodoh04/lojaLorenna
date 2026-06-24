@@ -1,0 +1,14 @@
+{% extends "admin/index.html" %}
+
+{% block content %}
+<div class="module" style="margin-bottom: 20px;">
+    <h2 style="margin-bottom: 10px;">Links do site</h2>
+    <ul style="margin: 0; padding-left: 20px;">
+        <li><a href="{% url 'index' %}">Página inicial</a></li>
+        <li><a href="{% url 'lista-carros' %}">Estoque</a></li>
+        <li><a href="{% url 'sobre-nos' %}">Sobre nós</a></li>
+        <li><a href="{% url 'lista-vendas' %}">Vendas</a></li>
+    </ul>
+</div>
+{{ block.super }}
+{% endblock %}

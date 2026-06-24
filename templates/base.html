@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lorenna Automóveis</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container navbar-wrap">
+            <div class="navbar">
+                <a href="{% url 'index' %}" class="brand">
+                    <img src="{% static 'Lorena_Automoveis_Logo1-removebg-preview.png' %}" alt="Lorenna Automóveis">
+                </a>
+                <div class="nav-menu">
+                    <ul class="nav-links">
+                        <li><a href="{% url 'index' %}">Início</a></li>
+                        <li><a href="{% url 'lista-carros' %}">Estoque</a></li>
+                        <li><a href="{% url 'sobre-nos' %}">Sobre nós</a></li>
+                    </ul>
+                    <ul class="nav-contact-links">
+                        <li>
+                            <a href="https://wa.me/5511944429082" target="_blank" rel="noopener noreferrer">
+                                <img src="{% static 'icons/whatsapp-32.png' %}" alt="WhatsApp">
+                                <span>(11) 94442-9082</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://maps.google.com/?q=R.+Roberto+Fadlo+Daher,+101,+Centro,+São+Lourenço+da+Serra+-+SP" target="_blank" rel="noopener noreferrer">
+                                <img src="{% static 'icons/pino-de-localizacao.png' %}" alt="Localização">
+                                <span>R. Roberto Fadlo Daher, 101 - Centro, São Lourenço da Serra - SP</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    {% block content %}{% endblock %}
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Lorenna Automóveis</p>
+        </div>
+    </footer>
+</body>
+</html>

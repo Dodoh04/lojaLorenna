@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="card-page">
+    <div class="container">
+            <h2><span class="section-title-light">ESTOQUE</span> <span class="section-title-gold">LORENNA AUTOMÓVEIS</span></h2>
+        <div class="car-grid">
+            {% for carro in carros %}
+            <article class="car-card">
+                {% if carro.imagem %}
+                <img src="{{ carro.imagem.url }}" alt="{{ carro.modelo }}">
+                {% endif %}
+                <div class="car-card-body">
+                    <p class="car-card-brand">{{ carro.marca }}</p>
+                    <h3>{{ carro.modelo }}</h3>
+                    <p>{{ carro.ano }} • {{ carro.km }} km</p>
+                    <strong>R$ {{ carro.preco|floatformat:2 }}</strong>
+                    <a href="{% url 'detalhe-carro' carro.pk %}" class="button button-secondary">Detalhes</a>
+                </div>
+            </article>
+            {% empty %}
+            <p>Nenhum carro cadastrado.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

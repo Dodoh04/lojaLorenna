@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="card-page">
+    <div class="container detail-grid">
+        <div>
+            {% if carro.imagem %}
+            <img src="{{ carro.imagem.url }}" alt="{{ carro.modelo }}">
+            {% endif %}
+        </div>
+        <div class="detail-panel">
+            <p class="car-card-brand">{{ carro.marca }}</p>
+            <h2>{{ carro.modelo }}</h2>
+            <p>{{ carro.ano }} • {{ carro.km }} km • {{ carro.cor }}</p>
+            <p><strong>Preço:</strong> R$ {{ carro.preco|floatformat:2 }}</p>
+            <p><strong>Combustível:</strong> {{ carro.combustivel }}</p>
+            <p>{{ carro.descricao }}</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

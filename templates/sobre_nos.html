@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="section">
+    <div class="container about-page">
+        <div class="about-card about-card-text">
+            <div class="about-layout">
+                <div class="about-text-content">
+                    <p class="eyebrow">Sobre nós</p>
+                    <h2>Quem somos</h2>
+                    <p>
+                        A Lorenna Automóveis nasceu para oferecer um atendimento transparente, ágil e personalizado,
+                        com foco em encontrar o veículo ideal para cada cliente.
+                    </p>
+                    <div class="about-topic about-topic-reverse">
+                        <div class="about-topic-text">
+                            <h3>Nossa missão</h3>
+                            <p>
+                                Garantir confiança, excelência no atendimento e soluções inteligentes no mercado automotivo.
+                            </p>
+                        </div>
+                        <div class="about-topic-icon">
+                            <img src="{% static 'icons/missao.png' %}" alt="Ícone da missão">
+                        </div>
+                    </div>
+                    <div class="about-topic">
+                        <div class="about-topic-icon">
+                            <img src="{% static 'icons/aperto-de-mao-de-parceria.png' %}" alt="Ícone dos valores">
+                        </div>
+                        <div class="about-topic-text">
+                            <h3>Valores</h3>
+                            <p>
+                                Nossa empresa é guiada por respeito, ética e compromisso com cada cliente.
+                                Acreditamos que vender um veículo vai muito além da negociação: é construir confiança,
+                                oferecer clareza e garantir uma experiência segura desde o primeiro contato.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-card-image">
+                    <img src="{% static 'compraConcluida.png' %}" alt="Panfleto Lorenna Automóveis">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+{% endblock %}

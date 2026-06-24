@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="hero" style="background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('{% static 'cretaFundohero1.png' %}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <div class="container hero-content">
+        <div class="hero-text">
+            <h1>ESPECIALISTAS EM REALIZAR SEU SONHO</h1>
+            <p class="hero-description">Qualidade, transparência e atendimento especializado para você encontrar o veículo ideal.</p>
+        </div>
+    </div>
+
+    <div class="container stats-grid hero-stats">
+        <div class="stat-card">
+            <div class="stat-icon-wrap">
+                <img class="stat-icon" src="{% static 'icons/chave-do-carro.png' %}" alt="Chave do carro">
+            </div>
+            <div class="stat-content">
+                <strong>+100</strong>
+                <span>CLIENTES REALIZADOS</span>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon-wrap">
+                <img class="stat-icon" src="{% static 'icons/aperto-de-mao.png' %}" alt="Aperto de mão">
+            </div>
+            <div class="stat-content">
+                <strong>+5 ANOS</strong>
+                <span>REALIZANDO SONHOS</span>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon-wrap">
+                <img class="stat-icon" src="{% static 'icons/calendario.png' %}" alt="Calendário">
+            </div>
+            <div class="stat-content">
+                <strong>30 DIAS</strong>
+                <span>SEU CARRO É VENDIDO</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2><span class="section-title-light">ESTOQUE</span> <span class="section-title-gold">LORENNA AUTOMÓVEIS</span></h2>
+            <a href="{% url 'lista-carros' %}">Ver todos</a>
+        </div>
+        <div class="car-grid">
+            {% for carro in carros %}
+            <article class="car-card">
+                {% if carro.imagem %}
+                <img src="{{ carro.imagem.url }}" alt="{{ carro.modelo }}">
+                {% else %}
+                <img src="{% static 'Lorenna.png' %}" alt="Sem imagem">
+                {% endif %}
+                <div class="car-card-body">
+                    <p class="car-card-brand">{{ carro.marca }}</p>
+                    <h3>{{ carro.modelo }}</h3>
+                    <p>{{ carro.ano }} • {{ carro.km }} km</p>
+                    <p>{{ carro.descricao|truncatechars:80 }}</p>
+                    <strong>R$ {{ carro.preco|floatformat:2 }}</strong>
+                    <a href="{% url 'detalhe-carro' carro.pk %}" class="button button-secondary">Ver detalhes</a>
+                </div>
+            </article>
+            {% empty %}
+            <p>Nenhum carro cadastrado ainda.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}
